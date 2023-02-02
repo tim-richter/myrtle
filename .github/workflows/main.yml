@@ -130,6 +130,9 @@ jobs:
       - name: build
         run: pnpm build
         
+      - name: build tauri
+        run: pnpm tauri build
+        
       - run: ls -R
 
       - uses: actions/upload-artifact@master
