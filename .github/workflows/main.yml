@@ -85,7 +85,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [macos-latest, ubuntu-20.04, windows-latest]
+        platform: [ubuntu-20.04, windows-latest]
 
     runs-on: ${{ matrix.platform }}
     steps:
@@ -129,14 +129,24 @@ jobs:
         
       - name: build tauri
         run: pnpm tauri build
-
+          
       - uses: actions/upload-artifact@v3
+        if: matrix.platform == 'ubuntu-20.04'
         with:
-          path: |
-            /Users/runner/work/myrtle/myrtle/src-tauri/target/release/bundle/dmg/Myrtle_*_x64.dmg
-            /home/runner/work/myrtle/myrtle/src-tauri/target/release/bundle/deb/myrtle_*_amd64.deb
-            /home/runner/work/myrtle/myrtle/src-tauri/target/release/bundle/appimage/myrtle_*_amd64.AppImage
-            D:\a\myrtle\myrtle\src-tauri\target\release\bundle/msi/Myrtle_*_x64_en-US.msi
+          name: AppImage
+          path: /home/runner/work/myrtle/myrtle/src-tauri/target/release/bundle/appimage/myrtle_*_amd64.AppImage
+      
+      - uses: actions/upload-artifact@v3
+        if: matrix.platform == 'ubuntu-20.04'
+        with:
+          name: Deb
+          path: /home/runner/work/myrtle/myrtle/src-tauri/target/release/bundle/deb/myrtle_*_amd64.deb
+          
+      - uses: actions/upload-artifact@v3
+        if: matrix.platform == 'windows-latest'
+        with:
+          name: Msi
+          path: D:\a\myrtle\myrtle\src-tauri\target\release\bundle/msi/Myrtle_*_x64_en-US.msi
 
   release:
     name: 🚀 Release
@@ -149,7 +159,7 @@ jobs:
       - name: Setup node env
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - uses: pnpm/action-setup@v2.0.1
         name: Install pnpm
@@ -175,6 +185,8 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - uses: actions/download-artifact@v3
+      
+      - run: ls -R
 
       - name: Release
         run: pnpm release
