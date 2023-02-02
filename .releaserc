@@ -16,8 +16,9 @@
     ],
     ["@semantic-release/github", {
       "assets": [
-        {"path": "dist/asset.min.css", "label": "CSS distribution"},
-        {"path": "dist/asset.min.js", "label": "JS distribution"}
+        {"path": "AppImage/*", "label": "AppImage File for Linux"},
+        {"path": "Deb/*", "label": "Deb File for Linux"},
+        {"path": "Msi/*", "label": "Msi File for Windows"}
       ]
     }]
   ]
