@@ -1,6 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@semantic-release/changelog': ^6.0.2
+  '@semantic-release/git': ^10.0.1
   '@tanstack/react-query': ^4.24.4
   '@tanstack/react-query-devtools': ^4.24.4
   '@tanstack/react-table': ^8.7.9
@@ -39,7 +41,6 @@ specifiers:
   react-icons: ^4.7.1
   react-router-dom: ^6.8.0
   remeda: ^1.6.1
-  semantic-release: ^20.1.0
   tailwindcss: ^3.2.4
   tauri-plugin-store-api: github:tauri-apps/tauri-plugin-store
   typescript: ^4.6.4
@@ -72,6 +73,8 @@ dependencies:
   zustand: 4.3.2_immer@9.0.19+react@18.2.0
 
 devDependencies:
+  '@semantic-release/changelog': 6.0.2_semantic-release@20.1.0
+  '@semantic-release/git': 10.0.1_semantic-release@20.1.0
   '@tauri-apps/cli': 1.2.3
   '@types/lodash': 4.14.191
   '@types/node': 18.11.18
@@ -94,7 +97,6 @@ devDependencies:
   msw: 1.0.0_typescript@4.9.5
   postcss: 8.4.21
   prettier: 2.8.3
-  semantic-release: 20.1.0
   tailwindcss: 3.2.4_postcss@8.4.21
   typescript: 4.9.5
   vite: 4.0.4_@types+node@18.11.18
@@ -812,6 +814,19 @@ packages:
     engines: {node: '>=14'}
     dev: false
 
+  /@semantic-release/changelog/6.0.2_semantic-release@20.1.0:
+    resolution: {integrity: sha512-jHqfTkoPbDEOAgAP18mGP53IxeMwxTISN+GwTRy9uLu58UjARoZU8ScCgWGeO2WPkEsm57H8AkyY02W2ntIlIw==}
+    engines: {node: '>=14.17'}
+    peerDependencies:
+      semantic-release: '>=18.0.0'
+    dependencies:
+      '@semantic-release/error': 3.0.0
+      aggregate-error: 3.1.0
+      fs-extra: 11.1.0
+      lodash: 4.17.21
+      semantic-release: 20.1.0
+    dev: true
+
   /@semantic-release/commit-analyzer/9.0.2_semantic-release@20.1.0:
     resolution: {integrity: sha512-E+dr6L+xIHZkX4zNMe6Rnwg4YQrWNXK+rNsvwOPpdFppvZO1olE2fIgWhv89TkQErygevbjsZFSIxp+u6w2e5g==}
     engines: {node: '>=14.17'}
@@ -833,6 +848,25 @@ packages:
   /@semantic-release/error/3.0.0:
     resolution: {integrity: sha512-5hiM4Un+tpl4cKw3lV4UgzJj+SmfNIDCLLw0TepzQxz9ZGV5ixnqkzIVF+3tp0ZHgcMKE+VNGHJjEeyFG2dcSw==}
     engines: {node: '>=14.17'}
+    dev: true
+
+  /@semantic-release/git/10.0.1_semantic-release@20.1.0:
+    resolution: {integrity: sha512-eWrx5KguUcU2wUPaO6sfvZI0wPafUKAMNC18aXY4EnNcrZL86dEmpNVnC9uMpGZkmZJ9EfCVJBQx4pV4EMGT1w==}
+    engines: {node: '>=14.17'}
+    peerDependencies:
+      semantic-release: '>=18.0.0'
+    dependencies:
+      '@semantic-release/error': 3.0.0
+      aggregate-error: 3.1.0
+      debug: 4.3.4
+      dir-glob: 3.0.1
+      execa: 5.1.1
+      lodash: 4.17.21
+      micromatch: 4.0.5
+      p-reduce: 2.1.0
+      semantic-release: 20.1.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@semantic-release/github/8.0.7_semantic-release@20.1.0:
@@ -4278,6 +4312,11 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       aggregate-error: 3.1.0
+    dev: true
+
+  /p-reduce/2.1.0:
+    resolution: {integrity: sha512-2USApvnsutq8uoxZBGbbWM0JIYLiEMJ9RlaN7fAzVNb9OZN0SHjjTTfIcb667XynS5Y1VhwDJVDa72TnPzAYWw==}
+    engines: {node: '>=8'}
     dev: true
 
   /p-reduce/3.0.0:
