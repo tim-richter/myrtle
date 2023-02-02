@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { getClient, ResponseType } from '@tauri-apps/api/http';
 import { z } from 'zod';
 import { UserState } from '@stores/user';
 
@@ -32,18 +32,17 @@ export const useJenkinsRequest = (user: UserState) => async () => {
   )
     return null;
 
-  const response = await axios.get(
+  const client = await getClient();
+
+  const response = await client.get(
     constructRequestString(user.jenkins.base_url, '/'),
     {
-      auth: {
-        username: user.jenkins.username,
-        password: user.jenkins.password,
-      },
-      withCredentials: false,
+      timeout: 30,
+      responseType: ResponseType.JSON,
       headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Accept: '*/*',
+        Authorization: `Basic ${btoa(
+          `${user.jenkins.username}:${user.jenkins.password}`,
+        )}`,
       },
     },
   );

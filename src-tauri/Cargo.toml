@@ -1,8 +1,8 @@
 [package]
-name = "filch"
-version = "1.0.0"
-description = "A Tauri App"
-authors = ["you"]
+name = "myrtle"
+version = "0.0.0"
+description = "Jenkins Build Watcher"
+authors = ["Tim Richter"]
 license = ""
 repository = ""
 edition = "2021"
