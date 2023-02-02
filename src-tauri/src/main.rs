@@ -11,12 +11,10 @@ use tauri::{Manager, SystemTrayEvent};
 
 fn main() {
   let quit = CustomMenuItem::new("quit".to_string(), "Quit");
-  let hide = CustomMenuItem::new("hide".to_string(), "Hide");
-  let show = CustomMenuItem::new("show".to_string(), "Show");
+  let show = CustomMenuItem::new("show".to_string(), "Open Myrtle");
 
   let tray_menu = SystemTrayMenu::new()
   .add_item(show)
-  .add_item(hide)
   .add_native_item(SystemTrayMenuItem::Separator)
   .add_item(quit);
 
@@ -25,6 +23,13 @@ fn main() {
   tauri::Builder::default()
   .plugin(PluginBuilder::default().build())
   .system_tray(tray)
+  .on_window_event(|event| match event.event() {
+      tauri::WindowEvent::CloseRequested { api, .. } => {
+          event.window().hide().unwrap();
+          api.prevent_close();
+      }
+      _ => {}
+  })
   .on_system_tray_event(|app, event| match event {
     SystemTrayEvent::LeftClick {
       position: _,
@@ -55,10 +60,6 @@ fn main() {
       match id.as_str() {
         "quit" => {
           std::process::exit(0);
-        }
-        "hide" => {
-          let window = app.get_window("main").unwrap();
-          window.hide().unwrap();
         }
         "show" => {
           let window = app.get_window("main").unwrap();
