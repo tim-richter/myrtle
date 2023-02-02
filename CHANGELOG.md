@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/tim-richter/myrtle/compare/v1.0.0...v1.0.1) (2023-02-02)
+
+
+### Bug Fixes
+
+* use created assets ([0dc8abd](https://github.com/tim-richter/myrtle/commit/0dc8abd7113579fa6f8de3a30f158aa57e91cc6e))
+
 # 1.0.0 (2023-02-02)
 
 
