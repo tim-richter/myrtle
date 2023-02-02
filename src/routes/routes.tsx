@@ -1,4 +1,5 @@
-import Dashboard from '../pages/Dashboard';
+import React from 'react';
+import Dashboard from '@pages/Dashboard';
 
 const routes = [
   {

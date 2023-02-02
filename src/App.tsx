@@ -1,5 +1,6 @@
-import { AppProvider } from './providers/AppProvider';
-import { AppRoutes } from './routes';
+import React from 'react';
+import { AppProvider } from '@providers/AppProvider';
+import { AppRoutes } from '@routes';
 import './App.css';
 
 if (process.env.NODE_ENV === 'development') {

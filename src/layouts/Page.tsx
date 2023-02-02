@@ -1,6 +1,6 @@
 import React from 'react';
+import { WithChildren } from '@customTypes/utils';
 import Navbar from './Navbar';
-import { WithChildren } from '../types/utils';
 
 const PageLayout = ({ children }: WithChildren) => {
   return (

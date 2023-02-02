@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { z } from 'zod';
-import { UserState } from '../../../stores/user';
+import { UserState } from '@stores/user';
 
 const constructRequestString = (baseUrl: string, resource: string) => {
   return `${baseUrl}${resource}api/json?pretty=true&tree=jobs[name,url]`;

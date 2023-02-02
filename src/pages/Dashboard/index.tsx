@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { Button } from '@components/Button/Button';
+import { Modal } from '@components/Modal/Modal';
+import PageLayout from '@layouts/Page';
 import { BuildExplorer } from './components/BuildExplorer';
 import { BuildsTable } from './components/BuildsTable';
-import { Button } from '../../components/Button/Button';
-import { Modal } from '../../components/Modal/Modal';
-import PageLayout from '../../layouts/Page';
 
 const Dashboard = () => {
   const [modalOpen, setModalOpen] = useState(false);

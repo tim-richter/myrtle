@@ -22,7 +22,8 @@
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:prettier/recommended",
-    "plugin:react/jsx-runtime"
+    "plugin:react/jsx-runtime",
+    "plugin:react/recommended"
   ],
   "overrides": [
     {
@@ -64,7 +65,8 @@
         "**/*.spec.{js,jsx,ts,tsx}",
         "**/*.stories.{js,jsx,ts,tsx}",
         "test/**/*",
-        "src/mocks/**/*"
+        "src/mocks/**/*",
+        "vite.config.ts"
       ]
     }],
     "react/no-unstable-nested-components": [

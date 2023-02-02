@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../components/Button/Button';
-import useUser from '../stores/user';
+import { Button } from '@components/Button/Button';
+import useUser from '@stores/user';
 
 const Navbar = () => {
   const logout = useUser((state) => state.logout);

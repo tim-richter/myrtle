@@ -1,5 +1,5 @@
 import React from 'react';
-import { WithChildren } from '../types/utils';
+import { WithChildren } from '@customTypes/utils';
 
 export const CenteredLayout: React.FC<WithChildren> = ({ children }) => {
   return (

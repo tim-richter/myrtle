@@ -2,7 +2,7 @@
 import create from 'zustand';
 import { createJSONStorage, devtools, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
-import { storage } from '../utils/zustandPersist';
+import { storage } from '@utils/zustandPersist';
 
 export interface UserState {
   jenkins: {

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { FiX } from 'react-icons/fi';
-import { Children } from '../../types/utils';
+import { Children } from '@customTypes/utils';
 
 export interface ModalProps {
   children: Children;

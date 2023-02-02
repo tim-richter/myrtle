@@ -1,9 +1,9 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Spinner } from '../../../components/Spinner/Spinner';
-import { TreeView } from '../../../components/TreeView/TreeView';
-import { useJenkinsRequest } from '../../../features/jenkins/api';
-import useUser from '../../../stores/user';
+import { Spinner } from '@components/Spinner/Spinner';
+import { TreeView } from '@components/TreeView/TreeView';
+import { useJenkinsRequest } from '@features/jenkins/api';
+import useUser from '@stores/user';
 
 export const BuildExplorer = () => {
   const { isLoading, data, isError } = useQuery(
@@ -13,7 +13,7 @@ export const BuildExplorer = () => {
 
   if (isLoading) return <Spinner />;
 
-  if (isError || !data) return 'Error';
+  if (isError || !data) return <>Error</>;
 
   return (
     <TreeView

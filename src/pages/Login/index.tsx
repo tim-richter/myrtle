@@ -1,8 +1,9 @@
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Button } from '../../components/Button/Button';
-import { Input } from '../../components/Input/Input';
-import { CenteredLayout } from '../../layouts/Center';
-import useUser from '../../stores/user';
+import { Button } from '@components/Button/Button';
+import { Input } from '@components/Input/Input';
+import { CenteredLayout } from '@layouts/Center';
+import useUser from '@stores/user';
 
 interface IFormInputs {
   base_url: string;
