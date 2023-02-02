@@ -126,19 +126,17 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
-      - name: build
-        run: pnpm build
         
       - name: build tauri
         run: pnpm tauri build
-        
-      - run: ls -R
 
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
-          path: path/to/artifact
+          path: |
+            /Users/runner/work/myrtle/myrtle/src-tauri/target/release/bundle/dmg/Myrtle_*_x64.dmg
+            /home/runner/work/myrtle/myrtle/src-tauri/target/release/bundle/deb/myrtle_*_amd64.deb
+            /home/runner/work/myrtle/myrtle/src-tauri/target/release/bundle/appimage/myrtle_*_amd64.AppImage
+            D:\a\myrtle\myrtle\src-tauri\target\release\bundle/msi/Myrtle_*_x64_en-US.msi
 
   release:
     name: 🚀 Release
@@ -175,6 +173,8 @@ jobs:
             ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - uses: actions/download-artifact@v3
 
       - name: Release
         run: pnpm release
